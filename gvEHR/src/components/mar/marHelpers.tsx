@@ -15,33 +15,47 @@ export const isSlidingScaleInsulin = (medication: AllMedicationTypes): medicatio
 };
 
 export const renderMedTitleRow = (medication: AllMedicationTypes, order: MedicationOrder) => {
-    if (medication.route == "IV" && medication.isContinuous) {
-      return (
-        <div className="flex gap-2 h-6 font-semibold">
-          <span>{medication.genericName}</span>
-          {medication.brandName && (
-            <span>({medication.brandName})</span>
-          )}
-          <span className="text-nowrap">{medication.strength * order.unitsOrdered}{medication.strengthUnit}</span>
-        </div>
-      )
-    }
-    if (isSlidingScaleInsulin(medication)) {
-      return(
-        <div className="flex gap-2 h-6 font-semibold">
-          <span>{medication.genericName}</span>
-          {medication.brandName && (
-            <span>({medication.brandName})</span>
-          )}
-        </div>
-      )
-    }  
+  if (medication.route == "IV" && medication.isContinuous) {
+    return (
+      <div className="flex flex-wrap gap-2 h-fit font-semibold">
+        <span className="text-nowrap">{medication.genericName}</span>
+        {medication.brandName && (
+          <span className="text-nowrap">({medication.brandName})</span>
+        )}
+        <span className="text-nowrap">{medication.strength * order.unitsOrdered}{medication.strengthUnit}</span>
+      </div>
+    )
+  }
+  if (medication.route == "IV" && !medication.isContinuous ) {
+    return (
+      <div className="flex flex-wrap gap-1.5 h-fit font-semibold">
+        <span className="text-nowrap">{medication.genericName}</span>
+        {medication.brandName && (
+          <span className="text-nowrap">({medication.brandName})</span>
+        )}
+        <span className="text-nowrap">{medication.strength * order.unitsOrdered}{medication.strengthUnit}</span>
+        {medication.diluent &&
+          <span className="text-nowrap">in {medication.diluent} {medication.totalVolume}mL</span>
+        }
+      </div>
+    )
+  }
+  if (isSlidingScaleInsulin(medication)) {
+    return(
+      <div className="flex flex-wrap gap-2 h-6 font-semibold">
+        <span className="text-nowrap">{medication.genericName}</span>
+        {medication.brandName && (
+          <span className="text-nowrap">({medication.brandName})</span>
+        )}
+      </div>
+    )
+  }  
     else {
       return (
-        <div className="flex gap-2 h-6 font-semibold">
-          <span>{medication.genericName}</span>
+        <div className="flex flex-wrap gap-2 h-6 font-semibold">
+          <span className="text-nowrap">{medication.genericName}</span>
           {medication.brandName && (
-            <span>({medication.brandName})</span>
+            <span className="text-nowrap">({medication.brandName})</span>
           )}
           <span className="text-nowrap">{medication.strength * order.unitsOrdered}{medication.strengthUnit}</span>
         </div>

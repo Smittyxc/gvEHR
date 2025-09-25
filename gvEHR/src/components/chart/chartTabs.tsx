@@ -1,5 +1,5 @@
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Clipboard, NotebookText, Pill, TestTubeDiagonal, User, Users } from "lucide-react";
+import { Clipboard, NotebookText, Pill, TestTubeDiagonal, User } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import MultiPtSelector from "./multiPtSelector";
 

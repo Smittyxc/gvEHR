@@ -90,7 +90,7 @@ type PredefinedDataByTime = {
 };
 
 const predefinedVitalsData2: PredefinedDataByTime = {
-    10000: { // Data from 60 minutes ago
+    10000: { 
         "hrInput": "88",
         "hrSourceSelect": "Radial",
         "bpInput": "124/72",

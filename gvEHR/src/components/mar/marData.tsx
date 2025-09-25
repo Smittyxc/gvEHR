@@ -118,7 +118,7 @@ export const allMedications: AllMedicationTypes[] = [
     // --- IVMedication specific properties ---
     infusionRate: 100, 
     infusionRateUnit: 'mL/hr', 
-    diluent: "Normal Saline 0.9%", 
+    diluent: "normal saline 0.9%", 
     totalVolume: 50, 
     infusionDurationHours: 0.5, 
     isContinuous: false, 
@@ -154,6 +154,22 @@ export const allMedications: AllMedicationTypes[] = [
     isContinuous: true, 
   },
   {
+    id: "medPiperacillinTazobactamIV",
+    genericName: "piperacillin tazobactam",
+    route: "IV", 
+    strength: 3.375,
+    strengthUnit: "g",
+    orderableUnit: "vial",           
+    availableDosages: [3.375], 
+    administrationFrequencies: ["Q6H", "Q8H"], 
+    infusionRate: 100, 
+    infusionRateUnit: 'mL/hr',
+    diluent: 'normal saline 0.9%', 
+    totalVolume: 100, 
+    infusionDurationHours: 10, 
+    isContinuous: false, 
+  },
+  {
     id: "medLisinoprilOral10",
     genericName: "lisinopril",
     brandName: "Zestril",
@@ -179,7 +195,7 @@ export const allMedications: AllMedicationTypes[] = [
     administrationFrequencies: ["Q12H", "Q24H"], 
     infusionRate: 250, 
     infusionRateUnit: 'mL/hr',
-    diluent: "Dextrose 5% in Water", 
+    diluent: "dextrose 5% in water", 
     totalVolume: 250, 
     infusionDurationHours: 2, 
     isContinuous: false,
@@ -420,7 +436,16 @@ export const medicationOrders: MedicationOrder[] = [
   {
     id: "orderAmoxIv",
     medicationId: "medAmoxIv", 
-    unitsOrdered: 1,               // amount of orderableUnits to be administered to pt
+    unitsOrdered: 1,               // amount of orderableUnits to be administered to pt   
+    frequency: "Q8H",
+    priority: "ROUTINE",
+    indication: "Infection",
+    status: "active",
+  },
+    {
+    id: "orderPiperacillinTazobactamIV",
+    medicationId: "medPiperacillinTazobactamIV", 
+    unitsOrdered: 1,               // amount of orderableUnits to be administered to pt   
     frequency: "Q8H",
     priority: "ROUTINE",
     indication: "Infection",
