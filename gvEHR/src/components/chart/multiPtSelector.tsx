@@ -36,11 +36,11 @@ const MultiPtSelector = () => {
             Click a patient to enter their chart.
           </DialogDescription>
         </DialogHeader>
-        <div className="flex flex-col overflow-y-auto gap-3 border p-2 rounded-lg inset-shadow-sm ">
+        <div className="flex flex-col overflow-y-auto gap-3 bg-gray-100 border p-2 rounded-lg inset-shadow-sm  ">
           <div className="flex flex-col justify-start items-center">
-            <div className="flex flex-col w-full justify-start  gap-2 p-3 rounded-2xl border shadow">
-              <div className="w-full flex justify-between">
-                <p className="text-lg font-semibold">Smith, Matthew J.</p>
+            <div className="flex flex-col w-full justify-start bg-white hover:bg-lime-50 gap-2 p-3 rounded-2xl border shadow">
+              <div className="w-full flex justify-between ">
+                <p className="text-lg font-semibold peer-hover:underline">Smith, Matthew J.</p>
                 <p className="">CHS-350-G</p> 
               </div>
               <div className="flex pl-2">
@@ -75,7 +75,7 @@ const MultiPtSelector = () => {
           </div>
           
           <div className="flex flex-col justify-start items-center">
-            <div className="flex flex-col w-full justify-start  gap-2 p-3 rounded-2xl border shadow">
+            <div className="flex flex-col w-full justify-start bg-white hover:bg-lime-50 gap-2 p-3 rounded-2xl border shadow">
               <div className="w-full flex justify-between">
                 <p className="text-lg font-semibold">Smith, Matthew J.</p>
                 <p className="">CHS-350-G</p> 
@@ -112,7 +112,7 @@ const MultiPtSelector = () => {
           </div>
 
           <div className="flex flex-col justify-start items-center">
-            <div className="flex flex-col w-full justify-start  gap-2 p-3 rounded-2xl border shadow">
+            <div className="flex flex-col w-full justify-start bg-white hover:bg-lime-50 gap-2 p-3 rounded-2xl border shadow">
               <div className="w-full flex justify-between">
                 <p className="text-lg font-semibold">Smith, Matthew J.</p>
                 <p className="">CHS-350-G</p> 

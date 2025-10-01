@@ -3,7 +3,7 @@ import { useState, useMemo, useCallback, useEffect } from "react";
 import type { tableData, chartingOptions } from "./flexSheetData";
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell, TableFooter } from "../ui/table";
 import { Input } from "../ui/input";
-import CheckBoxList from "./checkBoxList";
+import CheckBoxList from "./checkBoxList.tsx";
 import { AddTimeColumnButton } from "./addTimeColButton";
 import AssessmentSelect from "./assessmentSelector";
 import { Tooltip, TooltipTrigger } from "../ui/tooltip";

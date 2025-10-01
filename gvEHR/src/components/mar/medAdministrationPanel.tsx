@@ -52,6 +52,7 @@ const MedAdministrationPanel = ({
     }
   })
 
+
   const [submitNewAdministrations, {isLoading}] = useSubmitNewAdministrationsMutation();
 
   // sending the new medAdministrationInstance to the backend
@@ -101,19 +102,21 @@ const MedAdministrationPanel = ({
       </div>
 
       <DialogContent className="flex flex-col md:max-w-4xl xl:max-w-6xl h-[96vh] bg-gray-200">
-        <div className="flex gap-16 items-center">
+        <div className="flex gap-16 justify-between items-center">
           <h1 className="text-2xl font-medium">Medication Administration Panel</h1>
-          {isScanned ? (
-            <p className="text-lime-800 bg-lime-200/50 py-1 px-2 rounded-xl">Patient Scanned</p>
-          ) : (
-            <p className="text-red-800 bg-red-200/50 py-1 px-2 rounded-xl">Patient Not Scanned</p>
-          )}
-          <Button 
-            className="w-fit h-6 bg-lime-500 text-white hover:bg-lime-600 shadow"
-            onClick={() => setIsScanned(true)}
-            disabled={isScanned}
-          >Scan patient
-          </Button>  
+          <div className="flex pr-8 gap-4 items-center">
+            {isScanned ? (
+              <p className="text-lime-800 bg-lime-200/50 py-1 px-2 rounded-xl">Patient Scanned</p>
+            ) : (
+              <p className="text-red-800 bg-red-200/50 py-1 px-2 rounded-xl">Patient Not Scanned</p>
+            )}
+            <Button 
+              className="w-fit h-6 bg-lime-500 text-white hover:bg-lime-600 shadow"
+              onClick={() => setIsScanned(true)}
+              disabled={isScanned}
+            >Scan patient
+            </Button>  
+          </div>
 
         </div>
         <div className="grid place-items-start flex-grow overflow-auto bg-gray-100 rounded-lg border border-gray-300">

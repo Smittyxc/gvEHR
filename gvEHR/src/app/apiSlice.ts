@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { generateAllInitialLabTimes, generateInitialLabData, labTemplate, type LabTableData } from '@/components/labs/labsData'
 import { sampleNotes, type NoteData } from '@/components/notes/notesData';
-import { labratoryOrders, medOrders, nursingOrders, respiratoryOrders, type MedOrderData, type OrderData } from '@/components/orders/orderData';
+import { consultOrders, labratoryOrders, medOrders, nursingOrders, respiratoryOrders, type MedOrderData, type OrderData } from '@/components/orders/orderData';
 import { generateInitialChartingData, getAllTimeOffsets, type tableData } from '@/components/flexSheets/flexSheetData';
 import { jamesAllen, type ChartData } from '@/components/chart/chartData';
 import { allMedications, medAdministrations, medicationOrders, type AllMedicationTypes, type MedAdministrationInstance, type MedicationOrder } from '@/components/mar/marData';
@@ -22,6 +22,7 @@ export interface GetOrdersResponse {
   labratoryOrders: OrderData[];
   respiratoryOrders: OrderData[];
   medicationOrders: MedOrderData[];
+  consultOrders: OrderData[]
 }
 
 interface GetMarResponse {
@@ -147,7 +148,8 @@ export const apiSlice = createApi({
             nursingOrders: nursingOrders, 
             respiratoryOrders: respiratoryOrders, 
             labratoryOrders: labratoryOrders,
-            medicationOrders: medOrders
+            medicationOrders: medOrders,
+            consultOrders: consultOrders
           }
         }
       }

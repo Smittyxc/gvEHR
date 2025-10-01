@@ -4,6 +4,7 @@ import {
     respHeaderNames, 
     medHeaderNames,
     labratoryHeaderNames,
+    consultHeaderNames,
 } from "@/components/orders/orderData"
 
 
@@ -14,11 +15,11 @@ const OrdersPage = () => {
 
     const { data, isLoading, isFetching, isError, error } = useGetOrdersQuery();
     
-    //could be moved below checks
     const nursingOrderData = data?.nursingOrders || []
     const labratoryOrderData = data?.labratoryOrders || []
     const medicationOrderData = data?.medicationOrders || []
     const respiratoryOrderData = data?.respiratoryOrders || []
+    const consultOrderData = data?.consultOrders || []
 
     // arrays for tanstack table to iterate over to build columns 
     const orderColumns = ["details", "status", "orderingProvider"]
@@ -46,17 +47,12 @@ const OrdersPage = () => {
 
     return (
         <div className="px-2 pt-4 w-full h-[calc(100vh-4rem)] flex flex-col gap-4 justify-start items-center bg-gray-100 overflow-y-auto">
-            <div className="flex w-full gap-4 justify-center">
-                {/* <Button className="bg-gray-200 shadow shadow-black/30 text-black hover:bg-gray-300" onClick={addNursingOrder}>Add Nursing Order</Button> */}
-                {/* <Button className="bg-gray-200 shadow shadow-black/30 text-black hover:bg-gray-300" onClick={addMedicationOrder}>Add Med Order</Button> */}
-                {/* <Button className="bg-gray-200 shadow shadow-black/30 text-black hover:bg-gray-300" onClick={addRespiratoryOrder}>Add Respiratory Order</Button> */}
-            </div>
             <div className="flex w-full h-full flex-col gap-4 px-2 py-3 overflow-y-auto border border-gray-300 rounded-tl-lg inset-shadow-sm">
                 <OrdersTable color="bg-blue-300" columnNames={orderColumns} headerNames={nursingHeaderNames} data={nursingOrderData} />
                 <OrdersTable color="bg-red-300" columnNames={medOrderColumns} headerNames={medHeaderNames} data={medicationOrderData} />
                 <OrdersTable color="bg-lime-200" columnNames={orderColumns} headerNames={respHeaderNames} data={respiratoryOrderData} />
                 <OrdersTable color="bg-fuchsia-200" columnNames={orderColumns} headerNames={labratoryHeaderNames} data={labratoryOrderData} />
-
+                <OrdersTable color="bg-yellow-200" columnNames={orderColumns} headerNames={consultHeaderNames} data={consultOrderData} />
             </div>
         </div>
     )

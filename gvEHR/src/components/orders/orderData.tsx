@@ -1,6 +1,5 @@
 export interface OrderData {
   displayName: string;
-  orderType: string;
   details: string;
   status: string;
   orderingProvider: string;
@@ -11,7 +10,6 @@ export interface OrderData {
 export const nursingOrders: OrderData[] = [
     {
         displayName: "Vital Signs Monitoring (q4h)",
-        orderType: "nursing",
         status: "Active",
         details: "Monitor BP, HR, RR, Temp, SpO₂ every 4 hours. Notify provider for Temp > 38.0°C (100.4°F), Systolic BP > 160 mmHg or < 100 mmHg, HR > 110 bpm or < 50 bpm.",
         orderingProvider: "Dr. John Smith, MD",
@@ -19,7 +17,6 @@ export const nursingOrders: OrderData[] = [
     },
     {
         displayName: "Blood Glucose Monitoring (ACHS)",
-        orderType: "nursing",
         status: "Active",
         details: "Monitor blood glucose before meals and at bedtime (ACHS). Notify provider for blood glucose < 70 mg/dL or > 300 mg/dL.",
         orderingProvider: "Dr. John Smith, MD",
@@ -27,28 +24,24 @@ export const nursingOrders: OrderData[] = [
     },
     {
         displayName: "Activity: As Tolerated",
-        orderType: "nursing",
         status: "Active",
         details: "Encourage patient activity as tolerated. Assist with ambulation as needed.",
         orderingProvider: "Dr. John Smith, MD"
     },
     {
         displayName: "Fall Risk Precautions",
-        orderType: "nursing",
         status: "Active",
         details: "Implement standard fall risk protocol. Ensure bed in low position and call light within reach.",
         orderingProvider: "Dr. John Smith, MD"
     },
     {
         displayName: "Contact Precautions for MRSA",
-        orderType: "nursing",
         status: "Active",
         details: "Gown and gloves with all room entry. Use dedicated patient equipment. Strict hand hygiene.",
         orderingProvider: "Dr. John Smith, MD"
     },
     {
         displayName: "Right Great Toe Wound Care",
-        orderType: "nursing",
         status: "Active",
         details: "Daily dressing change with normal saline (NS) wound cleansing and application of sterile dry dressing. Apply topical antimicrobial per wound care protocol. Monitor for signs of infection (increased redness, drainage, odor).",
         orderingProvider: "Dr. John Smith, MD",
@@ -56,45 +49,21 @@ export const nursingOrders: OrderData[] = [
     },
     {
         displayName: "Diabetic Diet",
-        orderType: "nursing",
         status: "Active",
         details: "Provide consistent carbohydrate diabetic diet. Encourage fluid intake unless contraindicated.",
         orderingProvider: "Dr. John Smith, MD"
     },
     {
         displayName: "Patient Education",
-        orderType: "nursing",
         status: "Active",
         details: "Educate patient on diabetes management, wound care, and MRSA precautions.",
         orderingProvider: "Dr. John Smith, MD",
         recurring: true
     },
-    {
-        displayName: "Case Management Consult",
-        orderType: "nursing",
-        status: "Active",
-        details: "Consult Case Management for discharge planning and home wound care follow-up.",
-        orderingProvider: "Dr. John Smith, MD"
-    },
-    {
-        displayName: "Pharmacy Consult",
-        orderType: "nursing",
-        status: "Active",
-        details: "Consult Pharmacy for medication review.",
-        orderingProvider: "Dr. John Smith, MD"
-    },
-    {
-        displayName: "Wound Culture",
-        orderType: "nursing", // Categorized as nursing as nurses will collect the sample
-        status: "Active",
-        details: "Collect wound culture if signs of worsening infection.",
-        orderingProvider: "Dr. John Smith, MD"
-    }
 ];
 
 export const nursingHeaderNames: OrderData = {
     displayName: "Nursing",
-    orderType: "nursing",
     details: "Details",
     status: "Status",
     orderingProvider: "Ordering Provider",
@@ -103,7 +72,6 @@ export const nursingHeaderNames: OrderData = {
 
 export interface MedOrderData {
   displayName: string;
-  orderType: string;
   dose: string;
   route: string;
   frequency: string;
@@ -116,7 +84,6 @@ export interface MedOrderData {
 export const medOrders: MedOrderData[] = [
   {
     displayName: "metoprolol tartrate 5mg/1mg",
-    orderType: "medical",
     dose: "5mg",
     route: "IV push",
     frequency: "PRN q. 4hr",
@@ -126,7 +93,6 @@ export const medOrders: MedOrderData[] = [
   },
   {
     displayName: "ceftriaxone (Rocephin) infusion 1g",
-    orderType: "medical", 
     dose: "1g",
     route: "IV",
     frequency: "Daily",
@@ -136,7 +102,6 @@ export const medOrders: MedOrderData[] = [
   },
   {
     displayName: "methylprednisolone (SOLU-MEDROL)",
-    orderType: "medical",
     dose: "125mg", 
     route: "IV",
     frequency: "q. 6hr",
@@ -146,7 +111,6 @@ export const medOrders: MedOrderData[] = [
   },
   {
     displayName: "albuterol sulfate",
-    orderType: "medical",
     dose: "2.5mg",
     route: "MDI",
     frequency: "q. 4hr", 
@@ -156,7 +120,6 @@ export const medOrders: MedOrderData[] = [
   },
   {
     displayName: "tiotropium bromide (Spiriva)",
-    orderType: "medical",
     dose: "5mcg",
     route: "MDI",
     frequency: "Daily",
@@ -166,7 +129,6 @@ export const medOrders: MedOrderData[] = [
   },
   {
     displayName: "acetaminophen (Tylenol)",
-    orderType: "medical",
     dose: "500mg",
     route: "PO",
     frequency: "PRN q. 6hr",
@@ -176,7 +138,6 @@ export const medOrders: MedOrderData[] = [
   },
   {
     displayName: "carvedilol (Coreg)",
-    orderType: "medical",
     dose: "12.5mg",
     route: "PO", 
     frequency: "BID",
@@ -188,7 +149,6 @@ export const medOrders: MedOrderData[] = [
 
 export const medHeaderNames: MedOrderData = {
     displayName: "Medication",
-    orderType: "medical",
     dose: "Dose",
     route: "Route",
     frequency: "Frequency",
@@ -200,14 +160,12 @@ export const medHeaderNames: MedOrderData = {
 export const respiratoryOrders: OrderData[] = [
   {
     displayName: "Oxygen Therapy",
-    orderType: "respiratory",
     details: "Administer oxygen via nasal cannula at 2 L/min. Titrate to maintain SpO₂ ≥ 92%.",
     status: "Active",
     orderingProvider: "Dr. Azzedine Habz"
   },
   {
     displayName: "Incentive Spirometry",
-    orderType: "respiratory",
     details: "Instruct patient to use incentive spirometer 10 times per hour while awake. Document effort and results",
     status: "Active",
     duration: "Until cancelled",
@@ -216,20 +174,18 @@ export const respiratoryOrders: OrderData[] = [
 ];
 
 export const respHeaderNames: OrderData = {
-      displayName: "Respiratory",
-      orderType: "nursing",
-      details: "Details",
-      status: "Status",
-      duration: "Duration",
-      orderingProvider: "Ordering Provider"
-  }
+    displayName: "Respiratory",
+    details: "Details",
+    status: "Status",
+    duration: "Duration",
+    orderingProvider: "Ordering Provider"
+}
 
 
 
 export const labratoryOrders: OrderData[] = [
   {
         displayName: "Basic Metabolic Panel (BMP)",
-        orderType: "lab", // Categorized as lab as nurses will collect the sample
         status: "Active",
         details: "Collect Basic Metabolic Panel (BMP).",
         duration: "Daily x3 days",
@@ -238,7 +194,6 @@ export const labratoryOrders: OrderData[] = [
     },
     {
         displayName: "Complete Blood Count (CBC)",
-        orderType: "lab", // Categorized as lab as nurses will collect the sample
         status: "Active",
         details: "Collect Complete Blood Count (CBC).",
         duration: "Daily x1 days",
@@ -247,7 +202,6 @@ export const labratoryOrders: OrderData[] = [
     },
     {
         displayName: "HbA1c",
-        orderType: "lab", 
         status: "Active",
         details: "Collect HbA1c if not done within last 3 months.",
         duration: "Once during admission",
@@ -255,7 +209,6 @@ export const labratoryOrders: OrderData[] = [
     },
     {
         displayName: "Wound Culture",
-        orderType: "lab", 
         status: "Active",
         details: "Collect wound culture if signs of worsening infection.",
         duration: "PRN",
@@ -263,7 +216,6 @@ export const labratoryOrders: OrderData[] = [
     },
     {
         displayName: "Blood Glucose Monitoring (ACHS)",
-        orderType: "lab",
         status: "Active",
         details: "Monitor blood glucose before meals and at bedtime (ACHS). Notify provider for blood glucose < 70 mg/dL or > 300 mg/dL.",
         duration: "Until cancelled",
@@ -273,14 +225,40 @@ export const labratoryOrders: OrderData[] = [
 ]
 
 export const labratoryHeaderNames: OrderData = {
-        displayName: "Labratory",
-        orderType: "lab",
-        details: "Details",
-        status: "Status",
-        duration: "Duration",
-        orderingProvider: "Ordering Provider"
-    }
+    displayName: "Labratory",
+    details: "Details",
+    status: "Status",
+    duration: "Duration",
+    orderingProvider: "Ordering Provider"
+}
 
+export const consultHeaderNames: OrderData = {
+    displayName: "Consults",
+    details: "Details",
+    status: "Status",
+    duration: "Duration",
+    orderingProvider: "Ordering Provider"
+}
 
+export const consultOrders: OrderData[] = [
+  {
+    displayName: "Case Management Consult",
+    status: "Active",
+    details: "Consult Case Management for discharge planning and home wound care follow-up.",
+    orderingProvider: "Dr. John Smith, MD"
+  },
+  {
+    displayName: "Pharmacy Consult",
+    status: "Active",
+    details: "Consult Pharmacy for medication review.",
+    orderingProvider: "Dr. John Smith, MD"
+  },
+  {
+    displayName: "Wound Culture",
+    status: "Active",
+    details: "Collect wound culture if signs of worsening infection.",
+    orderingProvider: "Dr. John Smith, MD"
+  }
+]
 
 
